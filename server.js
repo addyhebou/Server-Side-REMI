@@ -96,7 +96,7 @@ async function end() {
 
 async function readTasks() {
   try {
-    const { rows } = await client.query('select * from public."Tasks"');
+    const { rows } = await client.query('select * from public."REMI Goals"');
     return rows;
   } catch (error) {
     console.log('Error reading tasks', error);
