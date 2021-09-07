@@ -13,15 +13,15 @@ const port = 8080;
 
 start();
 
-app.get('/', (req, res) => res.sendFile(`${__dirname}/index.html`));
+// app.get('/', (req, res) => res.sendFile(`${__dirname}/index.html`));
 
-app.get('/tasks', async (req, res) => {
+app.get('/', async (req, res) => {
   const rows = await readTasks();
   res.setHeader('content-type', 'application/json');
   res.send(JSON.stringify(rows));
 });
 
-app.post('/tasks', async (req, res) => {
+app.post('/', async (req, res) => {
   let result = {};
   try {
     const reqJSON = req.body;
@@ -35,7 +35,7 @@ app.post('/tasks', async (req, res) => {
   }
 });
 
-app.delete('/tasks', async (req, res) => {
+app.delete('/', async (req, res) => {
   let result = {};
   try {
     const reqJSON = req.body;
