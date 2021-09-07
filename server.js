@@ -3,11 +3,11 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 const client = new Client({
-  user: 'postgres',
-  password: 'Sourwood2014@12345678',
-  host: 'localhost',
+  user: 'sccwhzbyevszjy',
+  password: 'b4fd80938171b16171dae6a709b41bce73ce53d1c1040469ad114322d3e7cfd7',
+  host: 'ec2-44-198-80-194.compute-1.amazonaws.com',
   port: 5432,
-  database: '2021 Goals',
+  database: 'de3ohrg8p4dhqn',
 });
 const port = 8080;
 
