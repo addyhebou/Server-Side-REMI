@@ -74,7 +74,7 @@ async function connect() {
   try {
     await client.connect();
     console.log('Connected successfully - woohoo!');
-    client.query(
+    await client.query(
       'SELECT table_schema,table_name FROM information_schema.tables;',
       (err, res) => {
         if (err) throw err;
