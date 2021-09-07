@@ -2,12 +2,18 @@ const { Client } = require('pg');
 const express = require('express');
 const app = express();
 app.use(express.json());
+// const client = new Client({
+//   user: 'sccwhzbyevszjy',
+//   password: 'b4fd80938171b16171dae6a709b41bce73ce53d1c1040469ad114322d3e7cfd7',
+//   host: 'ec2-44-198-80-194.compute-1.amazonaws.com',
+//   port: 5432,
+//   database: 'de3ohrg8p4dhqn',
+// });
 const client = new Client({
-  user: 'sccwhzbyevszjy',
-  password: 'b4fd80938171b16171dae6a709b41bce73ce53d1c1040469ad114322d3e7cfd7',
-  host: 'ec2-44-198-80-194.compute-1.amazonaws.com',
-  port: 5432,
-  database: 'de3ohrg8p4dhqn',
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 const port = 8080;
 
@@ -68,6 +74,16 @@ async function connect() {
   try {
     await client.connect();
     console.log('Connected successfully - woohoo!');
+    client.query(
+      'SELECT table_schema,table_name FROM information_schema.tables;',
+      (err, res) => {
+        if (err) throw err;
+        for (let row of res.rows) {
+          console.log(JSON.stringify(row));
+        }
+        client.end();
+      }
+    );
   } catch (error) {
     console.log('DOH', error);
   }
