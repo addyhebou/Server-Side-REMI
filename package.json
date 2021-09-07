@@ -1,0 +1,28 @@
+{
+  "name": "server-side-remi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node server.js",
+    "index": "node index.js",
+    "fulltable": "node fullTable.js",
+    "asyncfulltable": "node asyncfulltable.js",
+    "tx": "node tx.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/addyhebou/Server-Side-REMI.git"
+  },
+  "author": "Addy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/addyhebou/Server-Side-REMI/issues"
+  },
+  "homepage": "https://github.com/addyhebou/Server-Side-REMI#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.7.1"
+  }
+}
