@@ -81,7 +81,7 @@ async function connect() {
         for (let row of res.rows) {
           console.log(JSON.stringify(row));
         }
-        client.end();
+        // await client.end();
       }
     );
   } catch (error) {
